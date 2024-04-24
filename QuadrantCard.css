@@ -1,0 +1,7 @@
+.quadrant-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 30px 30px 100px rgba(0, 0, 0, .16);
+  text-align: center;
+}

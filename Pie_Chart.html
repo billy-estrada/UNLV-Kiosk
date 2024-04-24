@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .Solar-Container {
+            max-width: 800px;
+            overflow-x: visible;
+            margin: 0 auto;
+        }
+    
+        .Solar-Canvas{
+            float: left;
+        }
+    
+        .Solar-Container-Card {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    
+        /* .Solar-Container canvas {
+            float: left;
+        } */
+    
+        .Solar-Card {
+            display: flex;
+            width: calc(50% - 5px);
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+    
+        .Solar-Color-Bar {
+            height: 20px;
+            width: 18px;
+        }
+    
+        .text {
+            margin-left: 5px; /* Adjust the spacing between color bar and text */
+        }
+    
+        @media (max-width: 448px) {
+            
+    
+            .Solar-Canvas {
+                float: initial;
+            }
+    
+            
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!--canvas below is where the chart will be created-->
+<div class="Solar-Container">
+    <div class="Solar-Canvas"><canvas id="SolarChart" role="img"></canvas> </div>
+    <div class="Solar-Container-Card">
+        <div class="Solar-Card"><div class="Solar-Color-Bar" style="background-color: #1f008f;"></div><span class="text" id="BEH">BEH - </span></div>
+        <div class="Solar-Card"><div class="Solar-Color-Bar" style="background-color: #5d1398;"></div><span class="text" id="CBC">CHB - </span></div>
+        <div class="Solar-Card"><div class="Solar-Color-Bar" style="background-color: #862da1;"></div><span class="text" id="DAY">DAY - </span></div>
+        <div class="Solar-Card"><div class="Solar-Color-Bar" style="background-color: #a948ac;"></div><span class="text" id="MPE C2">MPE C2 - </span></div>
+        <div class="Solar-Card"><div class="Solar-Color-Bar" style="background-color: #c86467;"></div><span class="text" id="MPE C">MPE C </span></div>
+        <div class="Solar-Card"><div class="Solar-Color-Bar" style="background-color: #b02607;"></div><span class="text" id="RLL">RLL - </span></div>
+        <div class="Solar-Card"><div class="Solar-Color-Bar" style="background-color: #b55509;"></div><span class="text" id="SLC A">SLC A - </span></div>
+        <div class="Solar-Card"><div class="Solar-Color-Bar" style="background-color: #b87921;"></div><span class="text" id="SLC B1">SLC B1 - </span></div>
+        <div class="Solar-Card"><div class="Solar-Color-Bar" style="background-color: #b7ac3f;"></div><span class="text" id="SLC B2">SLC B2 - </span></div>
+        <div class="Solar-Card"><div class="Solar-Color-Bar" style="background-color: #035305;"></div><span class="text" id="SLC D">SLC D - </span></div>
+        <div class="Solar-Card"><div class="Solar-Color-Bar" style="background-color: #076f1a;"></div><span class="text" id="SU">SU - </span></div>
+        <div class="Solar-Card"><div class="Solar-Color-Bar" style="background-color: #2a9214;"></div><span class="text" id="WRI">WRI - </span></div>
+        <div class="Solar-Card"><div class="Solar-Color-Bar" style="background-color: #37b91c;"></div><span class="text" id="HAM">HAM - </span></div>
+        <div class="Solar-Card"><div class="Solar-Color-Bar" style="background-color: #68de4f;"></div><span class="text" id="RAJ">RAJ - </span></div>
+        <div class="Solar-Card"><div class="Solar-Color-Bar" style="background-color: #a8e89a;"></div><span class="text" id="SEB">SEB - </span></div>
+        <div class="Solar-Card"><div class="Solar-Color-Bar" style="background-color: #4285f4;"></div><span class="text" id="GUA">GUA - </span></div>
+    </div>
+
+</div>
+<!--Javascript is used to insert information into the chart-->
+<script>
+    //This URL is used to pull information from google sheet. The url return back a csv file.
+    var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSKpBw8CkxXKLKtAzXluunQbMObx33CQCbWw3MNyMrS6f5S_JdRo2qFMInKUlRMmRCS2d8PNV0ehsUU/pub?gid=1471635259&single=true&output=csv";
+    //attempt to fetch data from google sheet.
+    fetch(url).then(function (response) {
+            return response.text(); //pass response into text
+        }).then(function (results) {
+            let currentDate = new Date();            
+            currentDate = (currentDate.getMonth() +1).toString().padStart(2, '0') + "-" + currentDate.getDate().toString().padStart(2, '0')
+                + "-" + currentDate.getFullYear().toString();
+            var ChartValues = results.split('\n'); //parse it by end of line.
+            //change this array into 2d array.
+            for(let i =0 ; i < ChartValues.length; i++)
+                ChartValues[i] = ChartValues[i].split(','); //parse again by comma
+
+            //if array is null then we cant create a chart.
+            if(ChartValues == null)
+                return;
+            //x values will be the building names. If new building were to be added, just insert it at the end of the list.
+            let xValues = ["BEH","CBC","DAY","MPE C2", "MPE C", "RLL", "SLC A", "SLC B1", "SLC B2", "SLC D", "SU", "WRI", "HAM", "RAJ", "SEB", "GUA"];
+            
+            //Add power generated to building name 
+            for(let i = 0; i < 16 ; i++)
+               document.getElementById(xValues[i]).innerHTML += ChartValues[i][1] + "kWh";
+            
+            //y values will be the building power generated. This information is pulled from google sheet.
+            let yValues = [ parseFloat(ChartValues[0][1]), parseFloat(ChartValues[1][1]), parseFloat(ChartValues[2][1]),
+                            parseFloat(ChartValues[3][1]), parseFloat(ChartValues[4][1]), parseFloat(ChartValues[5][1]),
+                            parseFloat(ChartValues[6][1]), parseFloat(ChartValues[7][1]), parseFloat(ChartValues[8][1]),
+                            parseFloat(ChartValues[9][1]), parseFloat(ChartValues[10][1]), parseFloat(ChartValues[11][1]),
+                            parseFloat(ChartValues[12][1]), parseFloat(ChartValues[13][1]), parseFloat(ChartValues[14][1]),
+                            parseFloat(ChartValues[15][1])];
+            //Set all bar to one color
+            let barColors = ["#1f008f", "#5d1398", "#862da1", "#a948ac", "#c86467", "#b02607", "#b55509", "#b87921", "#b7ac3f", "#035305",
+                             "#076f1a", "#2a9214", "#37b91c", "#68de4f", "#a8e89a", "#4285f4"];
+
+            //Get canvas element to add in aria-label. This need to be done dynamically because power generated changes everyday.
+            const ChartAttribute = document.getElementById("SolarChart");
+            ChartAttribute.setAttribute("aria-label","UNLV Solar Energy Production Chart." +
+            " Power generate in kilowatt-hour by building. BEH: " + ChartValues[0][1] +  
+            ", CBC: " + ChartValues[1][1] + ", DAY: "+ ChartValues[2][1] + ", MPE C2: " + ChartValues[3][1] + 
+            ", MPE C: " + ChartValues[4][1] + ", RLL: " + ChartValues[5][1] + ", SLC A: " + ChartValues[6][1] +
+            ", SLC B1: " + ChartValues[7][1] + ", SLC B2: " + ChartValues[8][1] + ", SLC D: " + ChartValues[9][1] +
+            ", SU: " + ChartValues[10][1] + ", WRI: " + ChartValues[11][1] + ", HAM: " + ChartValues[12][1] + 
+            ", RAJ: " + ChartValues[13][1] + ", SEB: "+ ChartValues[14][1] + ", GUA: " + ChartValues[15][1]);
+
+            //Create the chart onto the canvas
+            new Chart("SolarChart", {
+                type: "pie",
+                data:{
+                    labels: xValues,
+                    datasets: [{
+                        label: 'kWh',
+                        borderColor: "#000000",
+                        borderWidth: "2",
+                        backgroundColor: barColors,
+                        data: yValues
+                    }]
+                },
+                options:{
+                    //events:[], //Remove interactive element from the canvas. This is being removed because ChartJs does not support Keyboard Navigate
+                    legend: {display: true, text: "kWh"},
+                    plugins:{
+                        title: {display: true, text: "UNLV Solar Energy Production " + currentDate},
+                        legend: {display: false}
+                    }
+                }
+            });
+        });
+</script>
+
+</body>
+</html>

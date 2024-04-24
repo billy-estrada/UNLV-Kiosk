@@ -1,0 +1,2 @@
+export const SolarAPI = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSKpBw8CkxXKLKtAzXluunQbMObx33CQCbWw3MNyMrS6f5S_JdRo2qFMInKUlRMmRCS2d8PNV0ehsUU/pub?gid=1471635259&single=true&output=csv";
+export const WeatherAPI = "https://api.open-meteo.com/v1/forecast";

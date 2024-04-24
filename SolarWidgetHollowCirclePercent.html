@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hollow Circle with Text</title>
+    <style>
+        .Solar-Container-Card {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .Solar-Card {
+            display: flex;
+            align-items: center;
+            /* Align items vertically in the flex container */
+            width: calc(33.33% - 5px);
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            color: black;
+            text-decoration: none;
+        }
+
+        .Solar-Card svg {
+            vertical-align: middle;
+            /* Align the baseline of the SVG with the middle of the text */
+            margin-right: 10px;
+            /* Adjust the spacing between the SVG and the following div */
+        }
+
+        .text {
+            margin-left: 5px;
+            /* Adjust the spacing between color bar and text */
+        }
+
+        @media (max-width: 820px) {
+            .Solar-Card {
+                width: calc(50% - 5px);
+            }
+        }
+
+        @media (max-width: 547px) {
+            .Solar-Card {
+                width: 100%;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: grid; align-items: center; justify-items: center;">
+        <!-- <h4 id="Solar-Title">UNLV Solar Energy Production Daily for </h4> -->
+        <h4 id="Solar-Title" style="margin-bottom: 5px;">UNLV Solar Energy Daily Production</h4>
+        <h4 id="Solar-SubTitle" style="margin-top: 0px;">Total Power Generate for </h4>
+            <div class="Solar-Container-Card" style="max-width: 800px;">
+                <a href="https://solar.facilities.unlv.edu/" class="Solar-Card">
+                    <svg width="50" height="50" aria-label="Circle representing BEH building">
+                        <circle cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#eee" class=""></circle>
+                        <circle id="BEH-Circle" cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#1f008f" transform="rotate(-90, 25, 25)" ></circle>
+                        <text x="50%" y="50%" text-anchor="middle" dy=".37em" font-size="11.11111111111111"
+                            font-weight="bold" font-family="sans-serif" fill="black" id="BEH-Value"></text>
+                    </svg>
+                    <div id="BEH">BEH Generate </div>
+                </a>
+
+                <a href="https://solar.facilities.unlv.edu/" class="Solar-Card">
+                    <svg width="50" height="50" aria-label="Circle representing CBC building">
+                        <circle cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#eee" class=""></circle>
+                        <circle id="CBC-Circle" cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#5d1398" transform="rotate(-90, 25, 25)"></circle>
+                        <text x="50%" y="50%" text-anchor="middle" dy=".37em" font-size="11.11111111111111"
+                            font-weight="bold" font-family="sans-serif" fill="black" id="CBC-Value"></text>
+                    </svg>
+                    <div id="CBC">CBC Generate </div>
+                </a>
+                <a href="https://solar.facilities.unlv.edu/" class="Solar-Card">
+                    <svg width="50" height="50" aria-label="Circle representing DAY building">
+                        <circle cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#eee" class=""></circle>
+                        <circle id="DAY-Circle" cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#862da1" transform="rotate(-90, 25, 25)"></circle>
+                        <text x="50%" y="50%" text-anchor="middle" dy=".37em" font-size="11.11111111111111"
+                            font-weight="bold" font-family="sans-serif" fill="black" id="DAY-Value"></text>
+                    </svg>
+                    <div id="DAY">DAY Generate </div>
+                </a>
+                <a href="https://solar.facilities.unlv.edu/" class="Solar-Card">
+                    <svg width="50" height="50" aria-label="Circle representing MPE C2 building">
+                        <circle cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#eee" class=""></circle>
+                        <circle id="MPE C2-Circle" cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#a948ac" transform="rotate(-90, 25, 25)"></circle>
+                        <text x="50%" y="50%" text-anchor="middle" dy=".37em" font-size="11.11111111111111"
+                            font-weight="bold" font-family="sans-serif" fill="black" id="MPE C2-Value"></text>
+                    </svg>
+                    <div id="MPE C2">MPE C2 Generate </div>
+                </a>
+                <a href="https://solar.facilities.unlv.edu/" class="Solar-Card">
+                    <svg width="50" height="50" aria-label="Circle representing MPE C building">
+                        <circle cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#eee" class=""></circle>
+                        <circle id="MPE C-Circle" cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#c86467" transform="rotate(-90, 25, 25)"></circle>
+                        <text x="50%" y="50%" text-anchor="middle" dy=".37em" font-size="11.11111111111111"
+                            font-weight="bold" font-family="sans-serif" fill="black" id="MPE C-Value"></text>
+                    </svg>
+                    <div id="MPE C">MPE C Generate </div>
+                </a>
+                <a href="https://solar.facilities.unlv.edu/" class="Solar-Card">
+                    <svg width="50" height="50" aria-label="Circle representing RLL building">
+                        <circle cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#eee" class=""></circle>
+                        <circle id="RLL-Circle" cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#b02607" transform="rotate(-90, 25, 25)"></circle>
+                        <text x="50%" y="50%" text-anchor="middle" dy=".37em" font-size="11.11111111111111"
+                            font-weight="bold" font-family="sans-serif" fill="black" id="RLL-Value"></text>
+                    </svg>
+                    <div id="RLL">RLL Generate </div>
+                </a>
+                <a href="https://solar.facilities.unlv.edu/" class="Solar-Card">
+                    <svg width="50" height="50" aria-label="Circle representing SLC A building">
+                        <circle cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#eee" class=""></circle>
+                        <circle id="SLC A-Circle" cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#b55509" transform="rotate(-90, 25, 25)"></circle>
+                        <text x="50%" y="50%" text-anchor="middle" dy=".37em" font-size="11.11111111111111"
+                            font-weight="bold" font-family="sans-serif" fill="black" id="SLC A-Value"></text>
+                    </svg>
+                    <div id="SLC A">SLC A Generate </div>
+                </a>
+                <a href="https://solar.facilities.unlv.edu/" class="Solar-Card">
+                    <svg width="50" height="50" aria-label="Circle representing SLC B1 building">
+                        <circle cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#eee" class=""></circle>
+                        <circle id="SLC B1-Circle" cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#b87921" transform="rotate(-90, 25, 25)"></circle>
+                        <text x="50%" y="50%" text-anchor="middle" dy=".37em" font-size="11.11111111111111"
+                            font-weight="bold" font-family="sans-serif" fill="black" id="SLC B1-Value"></text>
+                    </svg>
+                    <div id="SLC B1">SLC B1 Generate </div>
+                </a>
+                <a href="https://solar.facilities.unlv.edu/" class="Solar-Card">
+                    <svg width="50" height="50" aria-label="Circle representing SLC B2 building">
+                        <circle cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#eee" class=""></circle>
+                        <circle id="SLC B2-Circle" cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#b7ac3f" transform="rotate(-90, 25, 25)"></circle>
+                        <text x="50%" y="50%" text-anchor="middle" dy=".37em" font-size="11.11111111111111"
+                            font-weight="bold" font-family="sans-serif" fill="black" id="SLC B2-Value"></text>
+                    </svg>
+                    <div id="SLC B2">SLC B2 Generate </div>
+                </a>
+                <a href="https://solar.facilities.unlv.edu/" class="Solar-Card">
+                    <svg width="50" height="50" aria-label="Circle representing SLC D building">
+                        <circle cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#eee" class=""></circle>
+                        <circle id="SLC D-Circle" cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#035305" transform="rotate(-90, 25, 25)"></circle>
+                        <text x="50%" y="50%" text-anchor="middle" dy=".37em" font-size="11.11111111111111"
+                            font-weight="bold" font-family="sans-serif" fill="black" id="SLC D-Value"></text>
+                    </svg>
+                    <div id="SLC D">SLC D Generate </div>
+                </a>
+                <a href="https://solar.facilities.unlv.edu/" class="Solar-Card">
+                    <svg width="50" height="50" aria-label="Circle representing SU building">
+                        <circle cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#eee" class=""></circle>
+                        <circle id="SU-Circle" cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#076f1a" transform="rotate(-90, 25, 25)"></circle>
+                        <text x="50%" y="50%" text-anchor="middle" dy=".37em" font-size="11.11111111111111"
+                            font-weight="bold" font-family="sans-serif" fill="black" id="SU-Value"></text>
+                    </svg>
+                    <div id="SU">SU Generate </div>
+                </a>
+                <a href="https://solar.facilities.unlv.edu/" class="Solar-Card">
+                    <svg width="50" height="50" aria-label="Circle representing WRI building">
+                        <circle cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#eee" class=""></circle>
+                        <circle id="WRI-Circle" cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#2a9214" transform="rotate(-90, 25, 25)"></circle>
+                        <text x="50%" y="50%" text-anchor="middle" dy=".37em" font-size="11.11111111111111"
+                            font-weight="bold" font-family="sans-serif" fill="black" id="WRI-Value"></text>
+                    </svg>
+                    <div id="WRI">WRI Generate </div>
+                </a>
+                <a href="https://solar.facilities.unlv.edu/" class="Solar-Card">
+                    <svg width="50" height="50" aria-label="Circle representing HAM building">
+                        <circle cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#eee" class=""></circle>
+                        <circle id="HAM-Circle" cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#37b91c" transform="rotate(-90, 25, 25)"></circle>
+                        <text x="50%" y="50%" text-anchor="middle" dy=".37em" font-size="11.11111111111111"
+                            font-weight="bold" font-family="sans-serif" fill="black" id="HAM-Value"></text>
+                    </svg>
+                    <div id="HAM">HAM Generate </div>
+                </a>
+                <a href="https://solar.facilities.unlv.edu/" class="Solar-Card">
+                    <svg width="50" height="50" aria-label="Circle representing RAJ building">
+                        <circle cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#eee" class=""></circle>
+                        <circle id="RAJ-Circle" cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#68de4f" transform="rotate(-90, 25, 25)"></circle>
+                        <text x="50%" y="50%" text-anchor="middle" dy=".37em" font-size="11.11111111111111"
+                            font-weight="bold" font-family="sans-serif" fill="black" id="RAJ-Value"></text>
+                    </svg>
+                    <div id="RAJ">RAJ Generate </div>
+                </a>
+                <a href="https://solar.facilities.unlv.edu/" class="Solar-Card">
+                    <svg width="50" height="50" aria-label="Circle representing SEB building">
+                        <circle cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#eee" class=""></circle>
+                        <circle id="SEB-Circle" cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#a8e89a" transform="rotate(-90, 25, 25)"></circle>
+                        <text x="50%" y="50%" text-anchor="middle" dy=".37em" font-size="11.11111111111111"
+                            font-weight="bold" font-family="sans-serif" fill="black" id="SEB-Value"></text>
+                    </svg>
+                    <div id="SEB">SEB Generate </div>
+                </a>
+                <a href="https://solar.facilities.unlv.edu/" class="Solar-Card">
+                    <svg width="50" height="50" aria-label="Circle representing GUA building. GUA generate ">
+                        <circle cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#eee" class=""></circle>
+                        <circle id="GUA-Circle" cx="25" cy="25" r="20" stroke-width="5" fill="none" stroke="#4285f4" transform="rotate(-90, 25, 25)"></circle>
+                        <text x="50%" y="50%" text-anchor="middle" dy=".37em" font-size="11.11111111111111"
+                            font-weight="bold" font-family="sans-serif" fill="black" id="GUA-Value"></text>
+                    </svg>
+                    <div id="GUA">GUA Generate </div>
+                </a>
+            </div>
+    </div>
+
+    <!--Javascript is used to insert information into the Circle-->
+    <script>
+        //This URL is used to pull information from google sheet. The url return back a csv file.
+        var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSKpBw8CkxXKLKtAzXluunQbMObx33CQCbWw3MNyMrS6f5S_JdRo2qFMInKUlRMmRCS2d8PNV0ehsUU/pub?gid=1471635259&single=true&output=csv";
+        //attempt to fetch data from google sheet.
+        fetch(url).then(function (response) {
+            return response.text(); //pass response into text
+        }).then(function (results) {
+            let Yesterday = new Date();
+            Yesterday.setDate((new Date()).getDate() - 1);
+            Yesterday = (Yesterday.getMonth() + 1).toString().padStart(2, '0') + "-" + Yesterday.getDate().toString().padStart(2, '0')
+                + "-" + Yesterday.getFullYear().toString();
+            var ChartValues = results.split('\n'); //parse it by end of line.
+
+            //change this array into 2d array.
+            for (let i = 0; i < ChartValues.length; i++){
+                ChartValues[i] = ChartValues[i].split(','); //parse again by comma
+                //Since we are parse by comma, there is a chance that solar panel will create more than 999 kWh. 
+                //This if statement will combine the strings together if that is the case.
+                if(ChartValues[i].length == 3){
+                    ChartValues[i][1] += ChartValues[i][2];
+                    ChartValues[i][1] = ChartValues[i][1].replaceAll('"','');
+                }
+            }
+            console.log(ChartValues);
+            //if array is null then we cant fill in the circle.
+            if (ChartValues == null)
+                return;
+
+            let TotalPower = 0;
+            for (let i = 0; i < 16; i++){
+                if(!isNaN(parseFloat(ChartValues[i][1])))
+                    TotalPower += parseFloat(ChartValues[i][1])
+            }
+            TotalPower = TotalPower.toFixed(2);
+
+            //document.getElementById("Solar-Title").innerHTML += " " + Yesterday;
+            document.getElementById("Solar-SubTitle").innerHTML += " " + Yesterday + ": " + TotalPower + " kWh";
+
+
+            //Add power generated to building name 
+            for (let i = 0; i < 16; i++) {
+                let BuildingID = ChartValues[i][0].toString() + "-Value";
+                let CircleID = ChartValues[i][0].toString() + "-Circle";
+                document.getElementById(ChartValues[i][0]).innerHTML += ChartValues[i][1] != '-' ? ChartValues[i][1] + " kWh" : " 0 kWh";
+
+                let PercentPower = 0;
+                if(!isNaN(parseFloat(ChartValues[i][1]))){
+                    PercentPower = (ChartValues[i][1] / TotalPower) * 100;
+                    PercentPower = PercentPower.toFixed(2);
+                }
+                
+                document.getElementById(BuildingID).innerHTML = PercentPower + "%";
+                document.getElementById(CircleID).setAttribute("stroke-dasharray", PercentPower + ", " + 125.6);
+            }
+        });
+    </script>
+</body>
+
+</html>
