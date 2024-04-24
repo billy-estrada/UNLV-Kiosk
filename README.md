@@ -1,11 +1,1 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-
-iPad mini 5
+As a group of student workers at UNLV, we were tasked on creating a front-end development with interactive UI for the Advanced Engineering Building. We were to use an old iPad as a screen which would be affixed to the wall and locked in kiosk mode. As you can see, the majority of my work is shown in BillyTest.jsx, as well as some work in the Quadrant related files. My work for this continues on a private development server, but I was given permission to share here as a view into my first real react project. 
